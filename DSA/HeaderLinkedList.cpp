@@ -49,6 +49,68 @@ void display(Node* header){
           cout<<endl;
 }
 
+void insertAtPos(Node* header,int pos,int val){
+
+    if(pos == 1 || header->next == NULL){
+        insertAtStart(header,val);
+    }
+   
+
+    Node* temp = header->next;
+
+    int count = 1;
+
+    while(temp != NULL && count< pos-1){
+        temp = temp->next;
+        count++;
+    }
+
+    if(temp == NULL){
+        cout<<"Pos is invalid !!!"<<endl;
+        return;
+    }
+
+    Node* newNode = new Node(val);
+
+    (header->data)++;
+
+    newNode->next = temp->next;
+
+    temp->next = newNode;
+
+}
+
+void deleteFromStart(Node * header){
+    if(header->next = NULL){
+        cout<<"LL is empty"<<endl;
+        return;
+    }
+    Node* temp = header->next;
+    header->next = temp->next;
+    temp->next = NULL;
+    delete temp;
+}
+
+void deleteFromlast(Node * header){
+    if(header->next == NULL){
+        return;
+    }
+    if(header->next->next == NULL){
+        delete header->next;
+        return;
+    }
+    Node* curr = header->next;
+
+    while(curr->next->next != NULL){
+        curr = curr->next;
+    }
+
+    Node* temp = curr->next;
+    delete temp;
+}
+
+
+
 int main(){
     Node *header = new Node(0);
 
@@ -80,6 +142,8 @@ int main(){
     insertAtLast(header,40);
     insertAtLast(header,50);
     display(header);
-    cout<<header->data;
+
+    deleteFromlast(header);
+   // display(header);
 
 }

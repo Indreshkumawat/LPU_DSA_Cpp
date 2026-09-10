@@ -53,6 +53,7 @@ void insertAtPos(Node* header,int pos,int val){
 
     if(pos == 1 || header->next == NULL){
         insertAtStart(header,val);
+        return; // this too 
     }
    
 
@@ -81,7 +82,7 @@ void insertAtPos(Node* header,int pos,int val){
 }
 
 void deleteFromStart(Node * header){
-    if(header->next = NULL){
+    if(header->next == NULL){  // this line too 
         cout<<"LL is empty"<<endl;
         return;
     }
@@ -89,6 +90,7 @@ void deleteFromStart(Node * header){
     header->next = temp->next;
     temp->next = NULL;
     delete temp;
+    (header->data)--;
 }
 
 void deleteFromlast(Node * header){
@@ -97,6 +99,7 @@ void deleteFromlast(Node * header){
     }
     if(header->next->next == NULL){
         delete header->next;
+         header->next = NULL; // this line too 
         return;
     }
     Node* curr = header->next;
@@ -106,7 +109,10 @@ void deleteFromlast(Node * header){
     }
 
     Node* temp = curr->next;
+    curr->next = NULL;  // this line 
     delete temp;
+
+    (header->data)--;
 }
 
 
@@ -144,6 +150,6 @@ int main(){
     display(header);
 
     deleteFromlast(header);
-   // display(header);
+    display(header);
 
 }

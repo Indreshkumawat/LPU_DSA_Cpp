@@ -11,8 +11,6 @@ class Node{
         next = NULL;
     }
 
- 
-
 };
 
 Node* insertAtStart(Node* head,int val){

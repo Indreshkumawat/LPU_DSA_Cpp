@@ -9,17 +9,21 @@ class Animal{
 
 class Dog : public Animal{
     public:
-    void sound(){
+    void sound() override {
         cout<<"Dog is barking"<<endl;
     }
 };
 
 int main(){
 
-   // Animal* d = new Dog();
-    Dog d;
-    d.sound();
-    d.Animal::sound();
+   Animal* d = new Dog();
+
+   d->sound();
+
+    // Dog d;
+    // d.sound();
+    // d.Animal::sound();\
+   
     
 
 }

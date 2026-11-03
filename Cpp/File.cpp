@@ -5,13 +5,23 @@ using namespace std;
 int main() {
 
    // ifstream fin("data.txt");
-    fstream file("data.txt", ios::in | ios::out);
+    fstream file("data.txt");
 
-    char ch;
-
-    while(file.get(ch)){
-        cout<<ch;
+    if(!file){
+        cout<<"it";
     }
+
+    string str;
+
+     file>>str;
+
+
+
+    // char ch;
+
+    // while(file.get(ch)){
+    //     cout<<ch;
+    // }
 
     // cout << "Character = " << ch << endl;
 

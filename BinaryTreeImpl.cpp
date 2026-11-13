@@ -120,6 +120,7 @@ int main(){
 
    // levelOrderTraversal(root);
 
+   cout<<countNodes(n6)<<endl;
    cout<<countNodes(n1);
 
 }

@@ -144,6 +144,8 @@ Node *deleteAtLast(Node *head)
     }
 
     temp->prev->next = NULL;
+    temp->prev = NULL;
+    delete temp;
 
     return head;
 }

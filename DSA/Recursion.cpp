@@ -28,7 +28,7 @@ int sum(int n){
 }
 
 int fact(int n){
-    if(n == 1){
+    if(n == 0){
         return 1;
     }
 
@@ -38,19 +38,15 @@ int fact(int n){
 
     // return n * fact(n-1);
 }
-
 double power(double a,int b){
     if(b == 0){
         return 1;
     }
 
-    double ans = power(a,b-1);
-    ans *= a;
+    double ans = power(a,b-1) * a;
+
     return ans;
-
-    // return a * power(a,b-1);
 }
-
 
 
 int main(){
@@ -58,10 +54,10 @@ int main(){
 
   //cout<<sum(5);
 
-  //cout<<fact(5);
+//   cout<<fact(5);
 
-  double a = -2;
-  int b = -3;
+  double a = 2;
+  int b = -5;
 
   if(b < 0){
     a = 1/a;

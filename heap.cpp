@@ -31,35 +31,6 @@ class Heap{
         }
 
     }
-
-    void heapify(int nums[],int n,int index){
-
-        int left = 2 * index + 1;
-        int right = 2 * index +2;
-
-        int largest = index;
-        if(left < n && nums[largest] < nums[left]){
-            largest = left;
-        }
-        if(right < n && nums[largest] < nums[right]){
-            largest = right;
-        }
-
-        if(largest != index){
-            swap(nums[largest],nums[index]);
-            heapify(nums,n,largest);
-        }
-    }
-    void heapSort(int nums[],int n){
-        for(int i = n/2-1; i>= 0; i--){
-            heapify(nums,n,i);
-        }
-        for(int i = n-1;i>0;i--){
-            swap(nums[0],nums[i]);
-            heapify(nums,i,0);
-        }
-        
-    }
     void show(){
         for(int i = 0; i<size;i++){
             cout << arr[i] <<" ";
@@ -95,33 +66,63 @@ int deleteHeap(){
 }
 };
 
+void heapify(int nums[],int n,int index){
+
+        int left = 2 * index + 1;
+        int right = 2 * index +2;
+
+        int largest = index;
+        if(left < n && nums[largest] < nums[left]){
+            largest = left;
+        }
+        if(right < n && nums[largest] < nums[right]){
+            largest = right;
+        }
+
+        if(largest != index){
+            swap(nums[largest],nums[index]);
+            heapify(nums,n,largest);
+        }
+    }
+    void heapSort(int nums[],int n){
+        for(int i = n/2-1; i>= 0; i--){
+            heapify(nums,n,i);
+        }
+        for(int i = n-1;i>0;i--){
+            swap(nums[0],nums[i]);
+            heapify(nums,i,0);
+        }
+        
+    }
+
 
 int main(){
      Heap h1;
-     h1.insert(10);
-     h1.insert(60);
-     h1.insert(30);
-     h1.insert(20);
-     h1.insert(90);
-     h1.insert(100);
-     h1.show();
-     cout<<endl;
-     cout<<h1.deleteHeap()<<endl;
-     h1.show();
+    //  h1.insert(10);
+    //  h1.insert(60);
+    //  h1.insert(30);
+    //  h1.insert(20);
+    //  h1.insert(90);
+    //  h1.insert(100);
+    //  h1.show();
+    //  cout<<endl;
+    //  cout<<h1.deleteHeap()<<endl;
+    //  h1.show();
 
      int nums[10] = {3,1,10,19,12,16,2,18,21,19}; 
      int n = 10;
      int s = n/2 - 1;
 
-    //  for(int i = s;i >= 0;i--){
-    //     h1.heapify(nums,n,i);
-    //  }
+     for(int i = s;i >= 0;i--){
+        heapify(nums,n,i);
+     }
 
-    //  for(int i = 0;i<n;i++){
-    //     cout<<nums[i]<<" ";
-    //  }
+     for(int i = 0;i<n;i++){
+        cout<<nums[i]<<" ";
+     }
     
-    h1.heapSort(nums,10);
+    heapSort(nums,10);
+    cout<<endl;
 
      for(int i = 0;i<n;i++){
         cout<<nums[i]<<" ";
